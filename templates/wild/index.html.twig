@@ -2,8 +2,34 @@
 {% block stylesheets %}
     {{ encore_entry_link_tags('app') }}
 {% endblock %}
+
+{% block title %}All programs{% endblock %}
+
 {% block body %}
-<h1>{{ website }} index</h1>
+    {{ dump(programs) }}
+
+    <h1>Toutes les séries de la table program : </h1>
+    {% for program in programs %}
+        <div>
+            <h2>{{ loop.index }} / {{ program.title }} - Catégorie : {{ program.category.name }}</h2>
+            <p>{{ program.summary }}</p>
+        </div>
+    {% else %}
+        Aucune série trouvée.
+    {% endfor %}
+    <a href="{{ path('app_index') }}">
+        Retour à l'accueil
+    </a>
+    <br>
+    <a href="{{ path('wild_index') }}">
+        Testing index() method from WildController to view all programs.
+    </a>
+    <br>
+    <a href="{{ path('show', { 'slug': "walking-dead" }) }}">
+        Testing show() method from WildController with a real program s slug.
+    </a>
+
+
 {% endblock %}
 {% block javascripts %}
     {{ encore_entry_script_tags('app') }}

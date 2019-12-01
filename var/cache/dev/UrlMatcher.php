@@ -14,6 +14,7 @@ return [
         '/_profiler/phpinfo' => [[['_route' => '_profiler_phpinfo', '_controller' => 'web_profiler.controller.profiler::phpinfoAction'], null, null, null, false, false, null]],
         '/_profiler/open' => [[['_route' => '_profiler_open_file', '_controller' => 'web_profiler.controller.profiler::openAction'], null, null, null, false, false, null]],
         '/' => [[['_route' => 'app_index', '_controller' => 'App\\Controller\\DefaultController::index'], null, null, null, false, false, null]],
+        '/wild' => [[['_route' => 'wild_index', '_controller' => 'App\\Controller\\WildController::index'], null, null, null, true, false, null]],
     ],
     [ // $regexpList
         0 => '{^(?'
@@ -32,7 +33,8 @@ return [
                         .'|(*:159)'
                     .')'
                 .')'
-                .'|/wild/show(?:/([a-z0-9-]+))?(*:197)'
+                .'|/show(?:/([a-z0-9-]+))?(*:192)'
+                .'|/category/([^/]++)(*:218)'
             .')/?$}sDu',
     ],
     [ // $dynamicRoutes
@@ -43,8 +45,9 @@ return [
         136 => [[['_route' => '_profiler_exception', '_controller' => 'web_profiler.controller.exception::showAction'], ['token'], null, null, false, false, null]],
         149 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception::cssAction'], ['token'], null, null, false, false, null]],
         159 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
-        197 => [
-            [['_route' => 'wild_indexwild_show', 'slug' => '#', '_controller' => 'App\\Controller\\WildController::show'], ['slug'], null, null, false, true, null],
+        192 => [[['_route' => 'show', 'slug' => null, '_controller' => 'App\\Controller\\WildController::show'], ['slug'], null, null, false, true, null]],
+        218 => [
+            [['_route' => 'show_category', '_controller' => 'App\\Controller\\WildController::showByCategory'], ['categoryName'], null, null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],
     ],
