@@ -4,6 +4,10 @@ namespace App\Controller;
 
 use App\Entity\Category;
 use App\Entity\Program;
+use App\Entity\Season;
+use App\Repository\EpisodeRepository;
+use App\Repository\ProgramRepository;
+use App\Repository\SeasonRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -97,5 +101,67 @@ class WildController extends AbstractController
             'wild/category.html.twig',
             ['programs' => $programs]
         );
+    }
+
+    /**
+     * Getting a program with a formatted slug for title
+     *
+     * @param string $slug
+     * @param ProgramRepository $programRepository
+     * @return Response
+     * @Route("/program/{slug<^[a-z0-9-]+$>}", defaults={"slug" = null}, name="program")
+     */
+    public function showByProgram(?string $slug, ProgramRepository $programRepository)
+    {
+        if (!$slug) {
+            throw $this
+                ->createNotFoundException('No slug has been sent to find a program in program\'s table.');
+        }
+        $slug = preg_replace(
+            '/-/',
+            ' ', ucwords(trim(strip_tags($slug)), "-")
+        );
+
+        $program = $programRepository->findOneBy(['title' => $slug]);
+        $seasons = $program->getSeasons();
+
+        return $this->render('wild/program.html.twig', [
+            'program' => $program,
+            'seasons' => $seasons,
+            'slug'  => $slug,
+        ]);
+    }
+
+
+    /**
+     * @Route("/season/{seasonId<[0-9]+>}", defaults={"programName" = null}, name="season")
+     * @param int $seasonId
+     * @param SeasonRepository $seasonRepository
+     * @return Response
+     */
+    public function showBySeason(int $seasonId, SeasonRepository $seasonRepository)
+    {
+        $season = $seasonRepository->findOneById($seasonId);
+        $program = $season->getProgram();
+        $episodes = $season->getEpisodes();
+        return $this->render('wild/season.html.twig', [
+            'program' => $program,
+            'season' => $season,
+            'episodes' => $episodes
+        ]);
+    }
+
+    /**
+     * @Route("/episode/{episodeId<[0-9]+>}", defaults={"episodeName" = null}, name="episode")
+     * @param int $episodeId
+     * @param EpisodeRepository $episodeRepository
+     * @return Response
+     */
+    public function showByEpisode(int $episodeId, EpisodeRepository $episodeRepository)
+    {
+        $episode = $episodeRepository->findOneById($episodeId);
+        return $this->render('wild/episode.html.twig', [
+            'episode' => $episode
+        ]);
     }
 }

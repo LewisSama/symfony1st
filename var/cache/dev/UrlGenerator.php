@@ -19,4 +19,7 @@ return [
     'wild_index' => [[], ['_controller' => 'App\\Controller\\WildController::index'], [], [['text', '/wild/']], [], []],
     'show' => [['slug'], ['slug' => null, '_controller' => 'App\\Controller\\WildController::show'], ['slug' => '[a-z0-9-]+'], [['variable', '/', '[a-z0-9-]+', 'slug', true], ['text', '/show']], [], []],
     'show_category' => [['categoryName'], ['_controller' => 'App\\Controller\\WildController::showByCategory'], [], [['variable', '/', '[^/]++', 'categoryName', true], ['text', '/category']], [], []],
+    'program' => [['slug'], ['slug' => null, '_controller' => 'App\\Controller\\WildController::showByProgram'], ['slug' => '[a-z0-9-]+'], [['variable', '/', '[a-z0-9-]+', 'slug', true], ['text', '/program']], [], []],
+    'season' => [['seasonId'], ['programName' => null, '_controller' => 'App\\Controller\\WildController::showBySeason'], ['seasonId' => '[0-9]+'], [['variable', '/', '[0-9]+', 'seasonId', true], ['text', '/season']], [], []],
+    'episode' => [['episodeId'], ['episodeName' => null, '_controller' => 'App\\Controller\\WildController::showByEpisode'], ['episodeId' => '[0-9]+'], [['variable', '/', '[0-9]+', 'episodeId', true], ['text', '/episode']], [], []],
 ];

@@ -33,8 +33,13 @@ return [
                         .'|(*:159)'
                     .')'
                 .')'
-                .'|/show(?:/([a-z0-9-]+))?(*:192)'
-                .'|/category/([^/]++)(*:218)'
+                .'|/s(?'
+                    .'|how(?:/([a-z0-9-]+))?(*:195)'
+                    .'|eason/([0-9]+)(*:217)'
+                .')'
+                .'|/category/([^/]++)(*:244)'
+                .'|/program(?:/([a-z0-9-]+))?(*:278)'
+                .'|/episode/([0-9]+)(*:303)'
             .')/?$}sDu',
     ],
     [ // $dynamicRoutes
@@ -45,9 +50,12 @@ return [
         136 => [[['_route' => '_profiler_exception', '_controller' => 'web_profiler.controller.exception::showAction'], ['token'], null, null, false, false, null]],
         149 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception::cssAction'], ['token'], null, null, false, false, null]],
         159 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
-        192 => [[['_route' => 'show', 'slug' => null, '_controller' => 'App\\Controller\\WildController::show'], ['slug'], null, null, false, true, null]],
-        218 => [
-            [['_route' => 'show_category', '_controller' => 'App\\Controller\\WildController::showByCategory'], ['categoryName'], null, null, false, true, null],
+        195 => [[['_route' => 'show', 'slug' => null, '_controller' => 'App\\Controller\\WildController::show'], ['slug'], null, null, false, true, null]],
+        217 => [[['_route' => 'season', 'programName' => null, '_controller' => 'App\\Controller\\WildController::showBySeason'], ['seasonId'], null, null, false, true, null]],
+        244 => [[['_route' => 'show_category', '_controller' => 'App\\Controller\\WildController::showByCategory'], ['categoryName'], null, null, false, true, null]],
+        278 => [[['_route' => 'program', 'slug' => null, '_controller' => 'App\\Controller\\WildController::showByProgram'], ['slug'], null, null, false, true, null]],
+        303 => [
+            [['_route' => 'episode', 'episodeName' => null, '_controller' => 'App\\Controller\\WildController::showByEpisode'], ['episodeId'], null, null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],
     ],
