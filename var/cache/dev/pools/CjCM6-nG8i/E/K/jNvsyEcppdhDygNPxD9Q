@@ -10,14 +10,14 @@ return $getExpiry ? PHP_INT_MAX : Hydrator::hydrate(
     [
         'Symfony\\Component\\Routing\\Annotation\\Route' => [
             'path' => [
-                '/episode/{episodeId<[0-9]+>}',
+                '/episode/{id}',
             ],
             'name' => [
                 'episode',
             ],
             'defaults' => [
                 [
-                    'episodeName' => null,
+                    'id' => null,
                 ],
             ],
         ],

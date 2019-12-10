@@ -11,6 +11,8 @@
             <h1 class="mt-0">{{ episode.title }}</h1>
             <p>Description : {{ episode.synopsys }}</p>
         </div>
+        <a href="{{ path('season', { 'seasonId': season.id }) }}">Lien vers la saison</a>
+        <a href="{{ path('program', { 'slug': program }) }}">Lien vers la série</a>
     </div>
 {% endblock %}
 {% block javascripts %}

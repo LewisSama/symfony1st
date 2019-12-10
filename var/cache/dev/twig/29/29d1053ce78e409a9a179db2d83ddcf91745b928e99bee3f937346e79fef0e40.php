@@ -121,6 +121,14 @@ class __TwigTemplate_28aa07b61b943f45bf84382871a86d06c1ac5373556c12337e8d4b1d642
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["episode"]) || array_key_exists("episode", $context) ? $context["episode"] : (function () { throw new RuntimeError('Variable "episode" does not exist.', 12, $this->source); })()), "synopsys", [], "any", false, false, false, 12), "html", null, true);
         echo "</p>
         </div>
+        <a href=\"";
+        // line 14
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("season", ["seasonId" => twig_get_attribute($this->env, $this->source, (isset($context["season"]) || array_key_exists("season", $context) ? $context["season"] : (function () { throw new RuntimeError('Variable "season" does not exist.', 14, $this->source); })()), "id", [], "any", false, false, false, 14)]), "html", null, true);
+        echo "\">Lien vers la saison</a>
+        <a href=\"";
+        // line 15
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("program", ["slug" => (isset($context["program"]) || array_key_exists("program", $context) ? $context["program"] : (function () { throw new RuntimeError('Variable "program" does not exist.', 15, $this->source); })())]), "html", null, true);
+        echo "\">Lien vers la série</a>
     </div>
 ";
         
@@ -131,7 +139,7 @@ class __TwigTemplate_28aa07b61b943f45bf84382871a86d06c1ac5373556c12337e8d4b1d642
 
     }
 
-    // line 16
+    // line 18
     public function block_javascripts($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -141,7 +149,7 @@ class __TwigTemplate_28aa07b61b943f45bf84382871a86d06c1ac5373556c12337e8d4b1d642
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascripts"));
 
-        // line 17
+        // line 19
         echo "    ";
         echo $this->extensions['Symfony\WebpackEncoreBundle\Twig\EntryFilesTwigExtension']->renderWebpackScriptTags("app");
         echo "
@@ -166,7 +174,7 @@ class __TwigTemplate_28aa07b61b943f45bf84382871a86d06c1ac5373556c12337e8d4b1d642
 
     public function getDebugInfo()
     {
-        return array (  145 => 17,  135 => 16,  121 => 12,  117 => 11,  113 => 9,  103 => 8,  84 => 6,  71 => 3,  61 => 2,  38 => 1,);
+        return array (  153 => 19,  143 => 18,  130 => 15,  126 => 14,  121 => 12,  117 => 11,  113 => 9,  103 => 8,  84 => 6,  71 => 3,  61 => 2,  38 => 1,);
     }
 
     public function getSourceContext()
@@ -184,6 +192,8 @@ class __TwigTemplate_28aa07b61b943f45bf84382871a86d06c1ac5373556c12337e8d4b1d642
             <h1 class=\"mt-0\">{{ episode.title }}</h1>
             <p>Description : {{ episode.synopsys }}</p>
         </div>
+        <a href=\"{{ path('season', { 'seasonId': season.id }) }}\">Lien vers la saison</a>
+        <a href=\"{{ path('program', { 'slug': program }) }}\">Lien vers la série</a>
     </div>
 {% endblock %}
 {% block javascripts %}
