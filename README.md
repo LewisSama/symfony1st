@@ -4,4 +4,4 @@ https://www.youtube.com/watch?v=mo8AyyCU1ts&feature=youtu.be
 
 Quete 10 
 
-chmod 755 "/usr/local/bin/symfony"
+https://youtu.be/h28i12JB0vQ
