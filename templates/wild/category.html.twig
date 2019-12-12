@@ -1,4 +1,5 @@
 {%  extends "base.html.twig"  %}
+
 {% block stylesheets %}
     {{ encore_entry_link_tags('app') }}
 {% endblock %}
@@ -6,6 +7,7 @@
 {% block title %}Category{% endblock %}
 
 {% block body %}
+
     {% for program in programs %}
         <div class="media">
             <img class="align-self-start mr-3" src="{{program.poster}}" alt="{{ program.title }} poster">
@@ -15,12 +17,14 @@
                 <p>Categorie : {{ program.category.name }}</p>
             </div>
         </div>
-
-        <a href="{{ path('wild_index') }}">
-            Retour à l'accueil
-        </a>
     {% endfor %}
+
+    <a href="{{ path('wild_index') }}">
+        Retour à l'accueil
+    </a>
+
 {% endblock %}
+
 {% block javascripts %}
     {{ encore_entry_script_tags('app') }}
 {% endblock %}

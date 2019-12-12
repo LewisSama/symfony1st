@@ -6,9 +6,24 @@
 {% block title %}All programs{% endblock %}
 
 {% block body %}
-    {{ dump(programs) }}
 
     <h1>Toutes les séries de la table program : </h1>
+
+    {{ form_start(form) }}
+
+        {{ form_row(form.title) }}
+        {{ form_row(form.summary) }}
+        {{ form_row(form.poster) }}
+        <button type="submit" name="btnSearch">Rechercher</button>
+
+    {{ form_end(form) }}
+
+    <h2>Formulaire de catégorie</h2>
+
+    {{ form_start(categoryForm) }}
+        {{ form_row(categoryForm.name) }}
+        <button class="btn">{{ button_label|default('Save') }}</button>
+    {{ form_end(categoryForm) }}
     {% for program in programs %}
         <div>
             <h2>{{ loop.index }} / {{ program.title }} - Catégorie : {{ program.category.name }}</h2>

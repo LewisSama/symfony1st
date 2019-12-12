@@ -110,15 +110,55 @@ class __TwigTemplate_491bc3ead633fe609c1fdfa178ce2173d47a827f03e23b4c86bd2db36ab
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 9
-        echo "    ";
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\DumpExtension']->dump($this->env, $context, (isset($context["programs"]) || array_key_exists("programs", $context) ? $context["programs"] : (function () { throw new RuntimeError('Variable "programs" does not exist.', 9, $this->source); })()));
         echo "
-
     <h1>Toutes les séries de la table program : </h1>
+
     ";
         // line 12
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 12, $this->source); })()), 'form_start');
+        echo "
+
+        ";
+        // line 14
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 14, $this->source); })()), "title", [], "any", false, false, false, 14), 'row');
+        echo "
+        ";
+        // line 15
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 15, $this->source); })()), "summary", [], "any", false, false, false, 15), 'row');
+        echo "
+        ";
+        // line 16
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 16, $this->source); })()), "poster", [], "any", false, false, false, 16), 'row');
+        echo "
+        <button type=\"submit\" name=\"btnSearch\">Rechercher</button>
+
+    ";
+        // line 19
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 19, $this->source); })()), 'form_end');
+        echo "
+
+    <h2>Formulaire de catégorie</h2>
+
+    ";
+        // line 23
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["categoryForm"]) || array_key_exists("categoryForm", $context) ? $context["categoryForm"] : (function () { throw new RuntimeError('Variable "categoryForm" does not exist.', 23, $this->source); })()), 'form_start');
+        echo "
+        ";
+        // line 24
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["categoryForm"]) || array_key_exists("categoryForm", $context) ? $context["categoryForm"] : (function () { throw new RuntimeError('Variable "categoryForm" does not exist.', 24, $this->source); })()), "name", [], "any", false, false, false, 24), 'row');
+        echo "
+        <button class=\"btn\">";
+        // line 25
+        echo twig_escape_filter($this->env, (((isset($context["button_label"]) || array_key_exists("button_label", $context))) ? (_twig_default_filter((isset($context["button_label"]) || array_key_exists("button_label", $context) ? $context["button_label"] : (function () { throw new RuntimeError('Variable "button_label" does not exist.', 25, $this->source); })()), "Save")) : ("Save")), "html", null, true);
+        echo "</button>
+    ";
+        // line 26
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["categoryForm"]) || array_key_exists("categoryForm", $context) ? $context["categoryForm"] : (function () { throw new RuntimeError('Variable "categoryForm" does not exist.', 26, $this->source); })()), 'form_end');
+        echo "
+    ";
+        // line 27
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["programs"]) || array_key_exists("programs", $context) ? $context["programs"] : (function () { throw new RuntimeError('Variable "programs" does not exist.', 12, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["programs"]) || array_key_exists("programs", $context) ? $context["programs"] : (function () { throw new RuntimeError('Variable "programs" does not exist.', 27, $this->source); })()));
         $context['_iterated'] = false;
         $context['loop'] = [
           'parent' => $context['_parent'],
@@ -134,19 +174,19 @@ class __TwigTemplate_491bc3ead633fe609c1fdfa178ce2173d47a827f03e23b4c86bd2db36ab
             $context['loop']['last'] = 1 === $length;
         }
         foreach ($context['_seq'] as $context["_key"] => $context["program"]) {
-            // line 13
+            // line 28
             echo "        <div>
             <h2>";
-            // line 14
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["loop"], "index", [], "any", false, false, false, 14), "html", null, true);
+            // line 29
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["loop"], "index", [], "any", false, false, false, 29), "html", null, true);
             echo " / ";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["program"], "title", [], "any", false, false, false, 14), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["program"], "title", [], "any", false, false, false, 29), "html", null, true);
             echo " - Catégorie : ";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["program"], "category", [], "any", false, false, false, 14), "name", [], "any", false, false, false, 14), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["program"], "category", [], "any", false, false, false, 29), "name", [], "any", false, false, false, 29), "html", null, true);
             echo "</h2>
             <p>";
-            // line 15
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["program"], "summary", [], "any", false, false, false, 15), "html", null, true);
+            // line 30
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["program"], "summary", [], "any", false, false, false, 30), "html", null, true);
             echo "</p>
         </div>
     ";
@@ -161,14 +201,14 @@ class __TwigTemplate_491bc3ead633fe609c1fdfa178ce2173d47a827f03e23b4c86bd2db36ab
             }
         }
         if (!$context['_iterated']) {
-            // line 18
+            // line 33
             echo "        Aucune série trouvée.
     ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['program'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 20
+        // line 35
         echo "    <a href=\"";
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_index");
         echo "\">
@@ -176,14 +216,14 @@ class __TwigTemplate_491bc3ead633fe609c1fdfa178ce2173d47a827f03e23b4c86bd2db36ab
     </a>
     <br>
     <a href=\"";
-        // line 24
+        // line 39
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("wild_index");
         echo "\">
         Testing index() method from WildController to view all programs.
     </a>
     <br>
     <a href=\"";
-        // line 28
+        // line 43
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("show", ["slug" => "walking-dead"]);
         echo "\">
         Testing show() method from WildController with a real program s slug.
@@ -199,7 +239,7 @@ class __TwigTemplate_491bc3ead633fe609c1fdfa178ce2173d47a827f03e23b4c86bd2db36ab
 
     }
 
-    // line 34
+    // line 49
     public function block_javascripts($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -209,7 +249,7 @@ class __TwigTemplate_491bc3ead633fe609c1fdfa178ce2173d47a827f03e23b4c86bd2db36ab
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascripts"));
 
-        // line 35
+        // line 50
         echo "    ";
         echo $this->extensions['Symfony\WebpackEncoreBundle\Twig\EntryFilesTwigExtension']->renderWebpackScriptTags("app");
         echo "
@@ -234,7 +274,7 @@ class __TwigTemplate_491bc3ead633fe609c1fdfa178ce2173d47a827f03e23b4c86bd2db36ab
 
     public function getDebugInfo()
     {
-        return array (  213 => 35,  203 => 34,  187 => 28,  180 => 24,  172 => 20,  165 => 18,  149 => 15,  141 => 14,  138 => 13,  120 => 12,  113 => 9,  103 => 8,  84 => 6,  71 => 3,  61 => 2,  38 => 1,);
+        return array (  253 => 50,  243 => 49,  227 => 43,  220 => 39,  212 => 35,  205 => 33,  189 => 30,  181 => 29,  178 => 28,  160 => 27,  156 => 26,  152 => 25,  148 => 24,  144 => 23,  137 => 19,  131 => 16,  127 => 15,  123 => 14,  118 => 12,  113 => 9,  103 => 8,  84 => 6,  71 => 3,  61 => 2,  38 => 1,);
     }
 
     public function getSourceContext()
@@ -247,9 +287,24 @@ class __TwigTemplate_491bc3ead633fe609c1fdfa178ce2173d47a827f03e23b4c86bd2db36ab
 {% block title %}All programs{% endblock %}
 
 {% block body %}
-    {{ dump(programs) }}
 
     <h1>Toutes les séries de la table program : </h1>
+
+    {{ form_start(form) }}
+
+        {{ form_row(form.title) }}
+        {{ form_row(form.summary) }}
+        {{ form_row(form.poster) }}
+        <button type=\"submit\" name=\"btnSearch\">Rechercher</button>
+
+    {{ form_end(form) }}
+
+    <h2>Formulaire de catégorie</h2>
+
+    {{ form_start(categoryForm) }}
+        {{ form_row(categoryForm.name) }}
+        <button class=\"btn\">{{ button_label|default('Save') }}</button>
+    {{ form_end(categoryForm) }}
     {% for program in programs %}
         <div>
             <h2>{{ loop.index }} / {{ program.title }} - Catégorie : {{ program.category.name }}</h2>

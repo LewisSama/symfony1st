@@ -57,7 +57,7 @@ class __TwigTemplate_9407de4e9ebdbb2ab818253f0b0907d671d1daae01ebdcec71b8c65b00d
 
     }
 
-    // line 2
+    // line 3
     public function block_stylesheets($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -67,7 +67,7 @@ class __TwigTemplate_9407de4e9ebdbb2ab818253f0b0907d671d1daae01ebdcec71b8c65b00d
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "stylesheets"));
 
-        // line 3
+        // line 4
         echo "    ";
         echo $this->extensions['Symfony\WebpackEncoreBundle\Twig\EntryFilesTwigExtension']->renderWebpackLinkTags("app");
         echo "
@@ -80,7 +80,7 @@ class __TwigTemplate_9407de4e9ebdbb2ab818253f0b0907d671d1daae01ebdcec71b8c65b00d
 
     }
 
-    // line 6
+    // line 7
     public function block_title($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -99,7 +99,7 @@ class __TwigTemplate_9407de4e9ebdbb2ab818253f0b0907d671d1daae01ebdcec71b8c65b00d
 
     }
 
-    // line 8
+    // line 9
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -109,46 +109,51 @@ class __TwigTemplate_9407de4e9ebdbb2ab818253f0b0907d671d1daae01ebdcec71b8c65b00d
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
-        // line 9
-        echo "    ";
+        // line 10
+        echo "
+    ";
+        // line 11
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["programs"]) || array_key_exists("programs", $context) ? $context["programs"] : (function () { throw new RuntimeError('Variable "programs" does not exist.', 9, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["programs"]) || array_key_exists("programs", $context) ? $context["programs"] : (function () { throw new RuntimeError('Variable "programs" does not exist.', 11, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["program"]) {
-            // line 10
+            // line 12
             echo "        <div class=\"media\">
             <img class=\"align-self-start mr-3\" src=\"";
-            // line 11
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["program"], "poster", [], "any", false, false, false, 11), "html", null, true);
+            // line 13
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["program"], "poster", [], "any", false, false, false, 13), "html", null, true);
             echo "\" alt=\"";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["program"], "title", [], "any", false, false, false, 11), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["program"], "title", [], "any", false, false, false, 13), "html", null, true);
             echo " poster\">
             <div class=\"media-body\">
                 <h1 class=\"mt-0\">";
-            // line 13
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["program"], "title", [], "any", false, false, false, 13), "html", null, true);
+            // line 15
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["program"], "title", [], "any", false, false, false, 15), "html", null, true);
             echo "</h1>
                 <p>";
-            // line 14
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["program"], "summary", [], "any", false, false, false, 14), "html", null, true);
+            // line 16
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["program"], "summary", [], "any", false, false, false, 16), "html", null, true);
             echo "</p>
                 <p>Categorie : ";
-            // line 15
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["program"], "category", [], "any", false, false, false, 15), "name", [], "any", false, false, false, 15), "html", null, true);
+            // line 17
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["program"], "category", [], "any", false, false, false, 17), "name", [], "any", false, false, false, 17), "html", null, true);
             echo "</p>
             </div>
         </div>
-
-        <a href=\"";
-            // line 19
-            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("wild_index");
-            echo "\">
-            Retour à l'accueil
-        </a>
     ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['program'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 21
+        echo "
+    <a href=\"";
+        // line 22
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("wild_index");
+        echo "\">
+        Retour à l'accueil
+    </a>
+
+";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
@@ -157,7 +162,7 @@ class __TwigTemplate_9407de4e9ebdbb2ab818253f0b0907d671d1daae01ebdcec71b8c65b00d
 
     }
 
-    // line 24
+    // line 28
     public function block_javascripts($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -167,7 +172,7 @@ class __TwigTemplate_9407de4e9ebdbb2ab818253f0b0907d671d1daae01ebdcec71b8c65b00d
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascripts"));
 
-        // line 25
+        // line 29
         echo "    ";
         echo $this->extensions['Symfony\WebpackEncoreBundle\Twig\EntryFilesTwigExtension']->renderWebpackScriptTags("app");
         echo "
@@ -192,12 +197,13 @@ class __TwigTemplate_9407de4e9ebdbb2ab818253f0b0907d671d1daae01ebdcec71b8c65b00d
 
     public function getDebugInfo()
     {
-        return array (  171 => 25,  161 => 24,  143 => 19,  136 => 15,  132 => 14,  128 => 13,  121 => 11,  118 => 10,  113 => 9,  103 => 8,  84 => 6,  71 => 3,  61 => 2,  38 => 1,);
+        return array (  176 => 29,  166 => 28,  151 => 22,  148 => 21,  138 => 17,  134 => 16,  130 => 15,  123 => 13,  120 => 12,  116 => 11,  113 => 10,  103 => 9,  84 => 7,  71 => 4,  61 => 3,  38 => 1,);
     }
 
     public function getSourceContext()
     {
         return new Source("{%  extends \"base.html.twig\"  %}
+
 {% block stylesheets %}
     {{ encore_entry_link_tags('app') }}
 {% endblock %}
@@ -205,6 +211,7 @@ class __TwigTemplate_9407de4e9ebdbb2ab818253f0b0907d671d1daae01ebdcec71b8c65b00d
 {% block title %}Category{% endblock %}
 
 {% block body %}
+
     {% for program in programs %}
         <div class=\"media\">
             <img class=\"align-self-start mr-3\" src=\"{{program.poster}}\" alt=\"{{ program.title }} poster\">
@@ -214,12 +221,14 @@ class __TwigTemplate_9407de4e9ebdbb2ab818253f0b0907d671d1daae01ebdcec71b8c65b00d
                 <p>Categorie : {{ program.category.name }}</p>
             </div>
         </div>
-
-        <a href=\"{{ path('wild_index') }}\">
-            Retour à l'accueil
-        </a>
     {% endfor %}
+
+    <a href=\"{{ path('wild_index') }}\">
+        Retour à l'accueil
+    </a>
+
 {% endblock %}
+
 {% block javascripts %}
     {{ encore_entry_script_tags('app') }}
 {% endblock %}", "wild/category.html.twig", "/home/lewis/Documents/PHP/symfony1st/wild-series/templates/wild/category.html.twig");

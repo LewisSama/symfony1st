@@ -6,10 +6,14 @@ use App\Entity\Category;
 use App\Entity\Program;
 use App\Entity\Episode;
 use App\Entity\Season;
+use App\Form\CategoryType;
+use App\Form\ProgramSearchType;
+use App\Repository\CategoryRepository;
 use App\Repository\EpisodeRepository;
 use App\Repository\ProgramRepository;
 use App\Repository\SeasonRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -20,9 +24,10 @@ class WildController extends AbstractController
      * Show all rows from Program’s entity
      *
      * @Route("/wild/", name="wild_index")
+     * @param Request $request
      * @return Response A response instance
      */
-    public function index(): Response
+    public function index(Request $request): Response
     {
         $programs = $this->getDoctrine()
             ->getRepository(Program::class)
@@ -33,11 +38,46 @@ class WildController extends AbstractController
                 'No program found in program\'s table.'
             );
         }
+        $form = $this->createForm(
+            ProgramSearchType::class,
+            null,
+            ['method' => Request::METHOD_GET]
+        );
+
 
         return $this->render(
             'wild/index.html.twig',
-            ['programs' => $programs]
+            [
+                'programs' => $programs,
+                'form' => $form->createView(),
+            ]
         );
+    }
+
+    /**
+     * @Route("/category/add", name="add_category")
+     * @param Request $request
+     * @return Response
+     */
+    public function addCategory(Request $request) : Response
+    {
+        $category = new Category();
+        $categoryForm = $this->createForm(CategoryType::class, $category);
+
+        $categoryForm->handleRequest($request);
+        $data = [];
+
+        if ($categoryForm->isSubmitted()) {
+            $data = $categoryForm->getData();
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($data);
+            $entityManager->flush();
+        }
+
+        return $this->render('wild/addCategory.html.twig', [
+            'categoryForm' => $categoryForm->createView(),
+            'data' => $data
+        ]);
     }
 
     /**
@@ -97,6 +137,7 @@ class WildController extends AbstractController
         $programs = $this->getDoctrine()
             ->getRepository(Program::class)
             ->findBy(['category' => $category],['id' => 'desc'], 3);
+
         return $this->render(
             'wild/category.html.twig',
             ['programs' => $programs]

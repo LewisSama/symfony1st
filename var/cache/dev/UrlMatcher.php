@@ -15,6 +15,7 @@ return [
         '/_profiler/open' => [[['_route' => '_profiler_open_file', '_controller' => 'web_profiler.controller.profiler::openAction'], null, null, null, false, false, null]],
         '/' => [[['_route' => 'app_index', '_controller' => 'App\\Controller\\DefaultController::index'], null, null, null, false, false, null]],
         '/wild' => [[['_route' => 'wild_index', '_controller' => 'App\\Controller\\WildController::index'], null, null, null, true, false, null]],
+        '/category/add' => [[['_route' => 'add_category', '_controller' => 'App\\Controller\\WildController::addCategory'], null, null, null, false, false, null]],
     ],
     [ // $regexpList
         0 => '{^(?'
